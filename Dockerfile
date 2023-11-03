@@ -2,7 +2,7 @@ FROM golang:1.20 as builder
 
 WORKDIR /app
 COPY . /app/
-RUN go build -o rancher_gitlab_proxy main.go
+RUN GOARCH=amd64 GOOS=linux go build -o rancher_gitlab_proxy main.go
 
 FROM alpine
 
