@@ -26,10 +26,10 @@ func main() {
 	router.GET("/api/v3/teams/:id", apiV3TeamsId)
 	router.GET("/api/v3/search/users", apiV3SearchUsers)
 
-	fmt.Println("Listening to 127.0.0.1:8888")
+	fmt.Println("Listening to :8888")
 	fmt.Println("GITLAB_URL=" + os.Getenv("GITLAB_URL"))
 	fmt.Println("RANCHER_URL=" + os.Getenv("RANCHER_URL"))
-	if err := http.ListenAndServe("127.0.0.1:8888", router); err != nil {
+	if err := http.ListenAndServe(":8888", router); err != nil {
 		panic(err)
 	}
 }
